@@ -1,0 +1,52 @@
+Write a short portable and easy to read C program that would read strings of TEL URI and SIP URI values both from a file (sip_tel_list.txt) and stdin (can use the same file to send to stdin) to derive and print out
+TN (telephone number), TON (type of number), NPI (Numbering plan identificator) for each line according to the rules below.
+The program needs to be compiled without warnings and output provided for review.
+
+For example:
+TN: 19736194383		TON: 2		NPI: 1
+TN: 5212291533253	TON: 1		NPI: 1
+...
+
+
+The TN digits in a TEL URI or SIP URI may be determined as follows:  
+If the value is in TEL URI format, then the digits may be found in the telephone-subscriber portion of the TEL URI as defined in RFC 3966.  
+Typically, the digits are found after the "tel:" and prior to any ";".  
+If the value is in SIP URI format, then the digits may be found in the user portion of the SIP URI as defined in RFC 3261.  
+Typically, when the user portion is given as a telephone number (e.g. user=phone), the digits are found after the "sip:" and prior to any ":", ";", or "@".  
+Dashes may be found within the digits in either format.  
+Additional visual separators may also be found within the digits, including ".", "(", and ")".
+Visual separators need to be removed before the TN is printed out.
+Telephone numbers (TNs) can have certain dialing prefixes like "*67", "*82" or "*272" than need to be removed before printing.
+
+TNs in the lines that start with "tel:" or have "user=phone", should always set NPI=1;
+For TNs that start with "+" or "011", remove these characters from printed TN, and set TON=1 if NPI==1 based on the rule above, otherwise TON=0;
+For any lines that have "user=phone", set NPI=1, otherwise NPI=0;
+For any lines that have "user=phone", but TNs do not start with "+" or "011", and TN is more than 7 digits long, after extra characters are removed, set TON=2;
+Any TN that is 7 digits or less long after extra characters are removed, should have TON=3.
+
+Here is what the possible values for TON and NPI mean:
+
+TON (Type Of Number)
+
+        0: Unknown
+        1: International
+        2: National
+        3: Network Specific
+        4: Subscriber Number
+        5: Alphanumeric
+        6: Abbreviated
+
+NPI (Numbering Plan Identificator)
+
+        Unknown = 0
+        ISDN/telephone numbering plan (E163/E164) = 1
+        Data numbering plan (X.121) = 3
+        Telex numbering plan (F.69) = 4
+        Land Mobile (E.212) =6
+        National numbering plan = 8
+        Private numbering plan = 9
+        ERMES numbering plan (ETSI DE/PS 3 01-3) = 10
+        Internet (IP) = 13
+        WAP Client Id (to be defined by WAP Forum) = 18
+
+

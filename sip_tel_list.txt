@@ -1,0 +1,15 @@
+sip:+18664190071@12.95.159.79:5060
+tel:+19736194383;npdi;rn=+18623689800;enumdi
+tel:+16177503774
+tel:+15618567581;oli=62
+sip:18668322363;phone-context=one.att.net@one.att.net;user=phone
+sip:7736825791;phone-context=one.att.net@one.att.net;user=phone
+sip:9786597900;phone-context=one.att.net@one.att.net;user=phone
+sip:0115212291533253;phone-context=one.att.net@one.att.net;user=phone
+sip:*677065268527;phone-context=one.att.net@one.att.net;user=phone
+sip:*673733267;phone-context=one.att.net@one.att.net;user=phone
+sip:*822674010405;phone-context=one.att.net@one.att.net;user=phone
+sip:*2729786597900;phone-context=one.att.net@one.att.net;user=phone
+sip:+1(347)896-3834@msg.pc.t-mobile.com;user=phone
+tel:+1.352.616.9323
+tel:+1-973-619-4383;npdi;rn=+18623689800;enumdi
