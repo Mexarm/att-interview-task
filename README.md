@@ -5,9 +5,20 @@
 
 ### run the example
 #### this compiles main.c in a docker container and then executes:  cat sip_tel_list.txt | printTNs 
+#### printTNs is the compiled binary.
 
 ```
 ./start-container.sh
+```
+
+### compiler does not report warnings:
+
+```
+...
+#8 [4/4] RUN gcc -std=c11 -o printTNs main.c
+#8 sha256:006da23eb8ac11a59eabcc34dabacd40963cb0c54d5a8d0cdf53b823a1f1f03e
+#8 DONE 0.3s
+...
 ```
 
 #### output
