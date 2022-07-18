@@ -1,11 +1,13 @@
 # AT&T interview task
 - Armando Hernandez Marin
 
+
+## instructions
+### run the example
 - docker is required to run the example
 
-### run the example
-#### this compiles main.c in a docker container and then executes:  cat sip_tel_list.txt | printTNs 
-#### printTNs is the compiled binary.
+#### this shell script compiles main.c in a docker container and then executes:  cat sip_tel_list.txt | printTNs 
+#### (printTNs is the compiled binary.)
 
 ```
 ./start-container.sh
