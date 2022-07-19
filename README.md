@@ -17,10 +17,25 @@
 
 ```
 ...
-#8 [4/4] RUN gcc -std=c11 -o printTNs main.c
-#8 sha256:006da23eb8ac11a59eabcc34dabacd40963cb0c54d5a8d0cdf53b823a1f1f03e
-#8 DONE 0.3s
+#8 [4/4] RUN gcc -Wall -o printTNs main.c
+#8 sha256:34ea93ab6c54f002c42d91b46f3e72ab28f341a6f6edc08b68f0f2659a33499b
+#8 DONE 0.4s
 ...
+```
+
+#### usage
+
+```
+./printTNs inputfile.txt
+cat inputfile.txt | ./printTNs -
+cat inputfile.txt | ./printTNs
+./printTNs < inputfile.txt
+```
+
+#### example
+
+```
+./printTNs sip_tel_list.txt
 ```
 
 #### output
