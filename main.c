@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 const char *dialing_prefixes[] = {"*272", "*67", "*82", "011"};
 
@@ -201,16 +202,40 @@ void print_row(struct URI_Details *details)
     printf("TN: %s %sTON: %d \t\tNPI: %d\n", details->cleaned_tn, separator, details->ton, details->npi);
 }
 
-int main()
+int main(int argc, char **argv)
 {
+    FILE *input;
+
+    if (argc > 1)
+    {
+        if (!strcmp(argv[1], "-"))
+        {
+            input = stdin;
+        }
+        else
+        {
+            input = fopen(argv[1], "r");
+            if (NULL == input)
+            {
+                fprintf(stderr, "Unable to open '%s': %s\n",
+                        argv[1], strerror(errno));
+                exit(EXIT_FAILURE);
+            }
+        }
+    }
+    else
+    {
+        input = stdin;
+    }
+
     char *line;
-    ssize_t buffer_size;
+    size_t buffer_size;
     size_t line_length;
     do
     {
         line = NULL;
         buffer_size = 0;
-        line_length = getline(&line, &buffer_size, stdin);
+        line_length = getline(&line, &buffer_size, input);
         if (line_length != -1)
         {
             struct URI_Details details;
@@ -223,5 +248,5 @@ int main()
         }
     } while ((line != NULL) && (strcmp(line, "\n") != 0) && (line_length != -1));
 
-    return 0;
+    return EXIT_SUCCESS;
 }
